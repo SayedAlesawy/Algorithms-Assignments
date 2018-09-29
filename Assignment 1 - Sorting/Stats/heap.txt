@@ -1,0 +1,14 @@
+1000_unsorted: 0.45886
+1000_sorted: 0.320742
+5000_unsorted: 1.8786
+5000_sorted: 1.65086
+10000_unsorted: 4.07218
+10000_sorted: 3.68997
+50000_unsorted: 23.2341
+50000_sorted: 27.5959
+75000_unsorted: 39.3381
+75000_sorted: 31.4483
+100000_unsorted: 50.0789
+100000_sorted: 42.8571
+500000_unsorted: 320.093
+500000_sorted: 252.768
