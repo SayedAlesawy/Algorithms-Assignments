@@ -28,7 +28,7 @@ public:
 	double sort(int* arr, int l, int r)
 	{
 		start = high_resolution_clock::now();
-		TimSortImplementation(arr, l, r);
+		TimSortImplementation(arr, r, 32);
 		end = high_resolution_clock::now();
 
 		TimeElapsed = duration_cast<duration<double>>(end - start);
