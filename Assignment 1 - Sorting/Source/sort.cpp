@@ -1,7 +1,10 @@
-#include "SortingAlgos.h"
-#include <ctime>
-#include <chrono>
-#include <ratio>
+#include "Context.h"
+#include "SelectionSort.h"
+#include "InsertionSort.h"
+#include "MergeSort.h"
+#include "QuickSort.h"
+#include "HeapSort.h"
+#include "TimSort.h"
 #include <fstream>
 #include <sstream>
 
@@ -9,43 +12,36 @@ using namespace std::chrono;
 
 double Sort(int* arr, int size, int algo)
 {
-	high_resolution_clock::time_point start;
-	high_resolution_clock::time_point end;
-
 	if (algo == 0) {
-		start = high_resolution_clock::now();
-		SelectionSort(arr, 0, size);
-		end = high_resolution_clock::now();
+		SelectionSort selection;
+		Context context(&selection);
+		return context.Execute(arr, 0, size);
 	}
 	else if (algo == 1) {
-		start = high_resolution_clock::now();
-		InsertionSort(arr, 0, size);
-		end = high_resolution_clock::now();
+		InsertionSort insertion;
+		Context context(&insertion);
+		return context.Execute(arr, 0, size);
 	}
 	else if (algo == 2) {
-		start = high_resolution_clock::now();
-		MergeSort(arr, 0, size);
-		end = high_resolution_clock::now();
+		MergeSort mergesort;
+		Context context(&mergesort);
+		return context.Execute(arr, 0, size);
 	}
 	else if (algo == 3) {
-		start = high_resolution_clock::now();
-		QuickSort(arr, 0, size);
-		end = high_resolution_clock::now();
+		QuickSort quick;
+		Context context(&quick);
+		return context.Execute(arr, 0, size);
 	}
 	else if (algo == 4) {
-		start = high_resolution_clock::now();
-		HeapSort(arr, size);
-		end = high_resolution_clock::now();
+		HeapSort heapsort;
+		Context context(&heapsort);
+		return context.Execute(arr, 0, size);
 	}
 	else {
-		start = high_resolution_clock::now();
-		TimSort(arr, size, 32);
-		end = high_resolution_clock::now();
+		TimSort timsort;
+		Context context(&timsort);
+		return context.Execute(arr, 0, size);
 	}
-
-	duration<double> ElapsedTime = duration_cast<duration<double>>(end - start);
-
-	return ElapsedTime.count()*1000.0;
 }
 
 int main(int argc, char** argv)
@@ -64,14 +60,15 @@ int main(int argc, char** argv)
 	InputFileName = argv[2];
 	OutputFileName = argv[3];
 	StatsFileName = argv[4];
-	
+
 	//Open input/output files
 	in.open(InputFileName);
 	outarr.open(OutputFileName);
 	outstat.open(StatsFileName, ios_base::app);
 
 	//Input Buffer
-	int arr[500100], x, size = 0;
+	int x, size = 0;
+	int* arr = new int[500100];
 
 	//Read the input file
 	while (in >> x) {
