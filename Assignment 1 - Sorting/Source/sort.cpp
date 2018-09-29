@@ -49,17 +49,27 @@ double Sort(int* arr, int size, int algo)
 	}
 }
 
-int main()
+int main(int argc, char** argv)
 {
 	//Preparing input and output files.
 	ifstream in;
 	ofstream outarr, outstat;
 	int AlgoIdentifier = 5;
-	
+	string InputFileName, OutputFileName, StatsFileName;
+
+	//Extracting the first argument which is the algo to be used.
+	stringstream ss(argv[1]);
+	ss >> AlgoIdentifier;
+
+	//Extracting the rest of the arguments
+	InputFileName = argv[2];
+	OutputFileName = argv[3];
+	StatsFileName = argv[4];
+
 	//Open input/output files
-	in.open("input.txt");
-	outarr.open("output.txt");
-	outstat.open("stats.txt", ios_base::app);
+	in.open(InputFileName);
+	outarr.open(OutputFileName);
+	outstat.open(StatsFileName, ios_base::app);
 
 	//Input Buffer
 	int x, size = 0;
