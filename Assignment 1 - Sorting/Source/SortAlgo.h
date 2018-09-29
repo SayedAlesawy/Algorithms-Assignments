@@ -9,9 +9,12 @@
 using namespace std::chrono;
 using namespace std;
 
+/*Base class for all algorithms*/
+
 class SortAlgo
 {
 protected:
+	/*Used to record the time elapsed for execution*/
 	high_resolution_clock::time_point start;
 	high_resolution_clock::time_point end;
 	duration<double> TimeElapsed;

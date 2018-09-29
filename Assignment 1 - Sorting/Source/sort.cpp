@@ -12,6 +12,11 @@ using namespace std::chrono;
 
 double Sort(int* arr, int size, int algo)
 {
+	//Depending on the algo id, choose the required algo
+	//Create an instance of the required algo
+	//Mount the instance in the context obj
+	//Execute the required startegy
+
 	if (algo == 0) {
 		SelectionSort selection;
 		Context context(&selection);
@@ -44,27 +49,17 @@ double Sort(int* arr, int size, int algo)
 	}
 }
 
-int main(int argc, char** argv)
+int main()
 {
 	//Preparing input and output files.
 	ifstream in;
 	ofstream outarr, outstat;
-	int AlgoIdentifier = 3;
-	string InputFileName, OutputFileName, StatsFileName;
-
-	//Extracting the first argument which is the algo to be used.
-	stringstream ss(argv[1]);
-	ss >> AlgoIdentifier;
-
-	//Extracting the rest of the arguments
-	InputFileName = argv[2];
-	OutputFileName = argv[3];
-	StatsFileName = argv[4];
-
+	int AlgoIdentifier = 5;
+	
 	//Open input/output files
-	in.open(InputFileName);
-	outarr.open(OutputFileName);
-	outstat.open(StatsFileName, ios_base::app);
+	in.open("input.txt");
+	outarr.open("output.txt");
+	outstat.open("stats.txt", ios_base::app);
 
 	//Input Buffer
 	int x, size = 0;

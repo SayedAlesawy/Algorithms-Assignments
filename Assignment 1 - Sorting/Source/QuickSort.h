@@ -6,23 +6,32 @@ class QuickSort : public SortAlgo
 private:
 	int GetParitionIndex(int* arr, int l, int r)
 	{
+		//Always takes the last element in the range as the pivot
 		int ParitionIndex = l, pivot = arr[r - 1];
 		for (int j = l; j < r - 1; j++) {
+			//If an element is smaller than or equal to the pivot
+			//Move it to the left half
 			if (arr[j] <= pivot) {
 				swap(arr[ParitionIndex], arr[j]);
 				ParitionIndex++;
 			}
 		}
+
+		//Place the pivot in its correct position and return it
 		swap(arr[ParitionIndex], arr[r - 1]);
+
 		return ParitionIndex;
 	}
 
 	void QuickSortImplementation(int* arr, int l, int r)
 	{
+		//Reached a leaf in the recursion tree
 		if (r - l <= 1) return;
+
 		int p = GetParitionIndex(arr, l, r);
-		QuickSortImplementation(arr, l, p);
-		QuickSortImplementation(arr, p, r);
+
+		QuickSortImplementation(arr, l, p); //Left  [l, p)
+		QuickSortImplementation(arr, p, r); //Right [p, r)
 	}
 
 public:
@@ -30,6 +39,7 @@ public:
 
 	double sort(int* arr, int l, int r)
 	{
+		//Run and calculate elapsed time
 		start = high_resolution_clock::now();
 		QuickSortImplementation(arr, l, r);
 		end = high_resolution_clock::now();

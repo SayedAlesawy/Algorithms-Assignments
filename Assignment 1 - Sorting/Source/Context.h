@@ -1,9 +1,12 @@
 #pragma once
 #include "SortAlgo.h"
 
+/*A context class to execute the startegy design pattern*/
+
 class Context
 {
 private:
+	//A reference on the chosen algo (startegy) to be used.
 	SortAlgo* StartegyExec;
 
 public:
