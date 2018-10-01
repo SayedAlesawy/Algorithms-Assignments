@@ -54,7 +54,7 @@ int main(int argc, char** argv)
 	//Preparing input and output files.
 	ifstream in;
 	ofstream outarr, outstat;
-	int AlgoIdentifier = 5;
+	int AlgoIdentifier = 3;
 	string InputFileName, OutputFileName, StatsFileName;
 
 	//Extracting the first argument which is the algo to be used.

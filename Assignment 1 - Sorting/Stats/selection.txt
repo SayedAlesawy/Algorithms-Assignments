@@ -1,14 +1,27 @@
-1000_unsorted: 1.76032
-1000_sorted: 1.64569
-5000_unsorted: 40.2838
-5000_sorted: 37.9107
-10000_unsorted: 166.444
-10000_sorted: 152.245
-50000_unsorted: 3881.14
-50000_sorted: 3856.17
-75000_unsorted: 8873.48
-75000_sorted: 8678.19
-100000_unsorted: 15541.9
-100000_sorted: 15488.9
-500000_unsorted: 400517
-500000_sorted: 395923
+1000_unsorted: 1.77868
+
+1000_sorted: 1.60551
+
+5000_unsorted: 40.2751
+
+5000_sorted: 41.0075
+
+10000_unsorted: 159.662
+
+10000_sorted: 151.398
+
+50000_unsorted: 3840.44
+
+50000_sorted: 3815.82
+
+75000_unsorted: 9385.38
+
+75000_sorted: 8849.64
+
+100000_unsorted: 17120.3
+
+100000_sorted: 15723
+
+500000_unsorted: 402720
+
+500000_sorted: 397811
