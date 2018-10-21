@@ -87,16 +87,22 @@ double RunSolution(int* arr, int l, int r)
 	return TimeElapsed.count()*1000.0;
 }
 
-/*
-int main()
+
+int main(int argc, char** argv)
 {
 	ifstream in;
 	ofstream outarr, outstat;
 
-	//Open input/output files
-	in.open("input1.txt");
-	outarr.open("output1.txt");
-	outstat.open("stats1.txt");
+	string InputFileName, OutputFileName, StatsFileName;
+
+	InputFileName = argv[1];
+	OutputFileName = argv[2];
+	StatsFileName = argv[3];
+
+	//Open the files for input/output
+	in.open(InputFileName);
+	outarr.open(OutputFileName);
+	outstat.open(StatsFileName);
 
 	int* arr = new int[500100];
 	int x = 0, size = 0;
@@ -115,5 +121,6 @@ int main()
 
 	//Output to the stats file
 	outstat << "Time taken to sort the array = " << ElapsedTime << " ms." << endl;
+
+	int wait; cin >> wait;
 }
-*/

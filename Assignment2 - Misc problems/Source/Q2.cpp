@@ -10,16 +10,22 @@
 using namespace std;
 using namespace std::chrono;
 
-/*
-int main()
+
+int main(int argc, char** argv)
 {
 	ifstream in;
 	ofstream outarr, outstat;
 
-	//Open input/output files
-	in.open("input1.txt");
-	outarr.open("output1.txt");
-	outstat.open("stats1.txt");
+	string InputFileName, OutputFileName, StatsFileName;
+
+	InputFileName = argv[1];
+	OutputFileName = argv[2];
+	StatsFileName = argv[3];
+
+	//Open the files for input/output
+	in.open(InputFileName);
+	outarr.open(OutputFileName);
+	outstat.open(StatsFileName);
 
 	//Intialize the needed vairables to benchmark
 	high_resolution_clock::time_point start;
@@ -88,6 +94,5 @@ int main()
 	outstat << "Time taken to sort the list = " << dur << " ms." << endl;
 
 	//Total time complexity: O(n.lg(n))
-	//Space complexity: O(k) where K is the number of distinct frequencies + the sizes of the hastables
+	//Space complexity: O(k) where K is the number of distinct frequencies + the sizes of the hastables almost O(n)
 }
-*/

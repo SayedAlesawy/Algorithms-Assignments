@@ -118,15 +118,22 @@ double RunSolution(int* A, int* B, int k, int size)
 	return TimeElapsed.count()*1000.0;
 }
 
-int main()
+
+int main(int argc, char** argv)
 {
 	ifstream in;
 	ofstream outarr, outstat;
 
-	//Open output/input files
-	in.open("input1.txt");
-	outarr.open("output1.txt");
-	outstat.open("stats1.txt");
+	string InputFileName, OutputFileName, StatsFileName;
+
+	InputFileName = argv[1];
+	OutputFileName = argv[2];
+	StatsFileName = argv[3];
+
+	//Open the files for input/output
+	in.open(InputFileName);
+	outarr.open(OutputFileName);
+	outstat.open(StatsFileName);
 
 	//Read the input, k goes first
 	int* A = new int[100100];

@@ -114,16 +114,22 @@ double RunSolution(Node* &head)
 	return TimeElapsed.count()*1000.0;
 }
 
-/*
-int main()
+
+int main(int argc, char** argv)
 {
 	ifstream in;
 	ofstream outarr, outstat;
 
+	string InputFileName, OutputFileName, StatsFileName;
+
+	InputFileName = argv[1];
+	OutputFileName = argv[2];
+	StatsFileName = argv[3];
+
 	//Open the files for input/output
-	in.open("input1.txt");
-	outarr.open("output1.txt");
-	outstat.open("stats1.txt");
+	in.open(InputFileName);
+	outarr.open(OutputFileName);
+	outstat.open(StatsFileName);
 
 	int x = 0, size = 0;
 	Node* head = NULL;
@@ -147,4 +153,3 @@ int main()
 	//Output the to the stats file
 	outstat << "Time taken to reverse the list: " << ElapsedTime << " ms." << endl;
 }
-*/
