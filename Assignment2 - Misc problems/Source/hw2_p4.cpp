@@ -2,6 +2,8 @@
 #include<stack>
 #include<algorithm>
 #include<fstream>
+#include<sstream>
+#include <climits>
 #include <ctime>
 #include <chrono>
 #include <ratio>
@@ -125,10 +127,13 @@ int main(int argc, char** argv)
 	ofstream outarr, outstat;
 
 	string InputFileName, OutputFileName, StatsFileName;
-
-	InputFileName = argv[1];
-	OutputFileName = argv[2];
-	StatsFileName = argv[3];
+	int k = 0, x, size = 0;
+	stringstream s; 
+	s << argv[1];
+	s >> k;
+	InputFileName = argv[2];
+	OutputFileName = argv[3];
+	StatsFileName = argv[4];
 
 	//Open the files for input/output
 	in.open(InputFileName);
@@ -136,11 +141,8 @@ int main(int argc, char** argv)
 	outstat.open(StatsFileName);
 
 	//Read the input, k goes first
-	int* A = new int[100100];
-	int k, x, size = 0;
-
-	in >> k;
-
+	int* A = new int[10000010];
+	
 	while (in >> x) {
 		A[size] = x;
 		size++;

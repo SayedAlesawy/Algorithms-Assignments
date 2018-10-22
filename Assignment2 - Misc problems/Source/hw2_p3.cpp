@@ -104,7 +104,7 @@ int main(int argc, char** argv)
 	outarr.open(OutputFileName);
 	outstat.open(StatsFileName);
 
-	int* arr = new int[500100];
+	int* arr = new int[10000010];
 	int x = 0, size = 0;
 
 	//Read the input
@@ -121,6 +121,4 @@ int main(int argc, char** argv)
 
 	//Output to the stats file
 	outstat << "Time taken to sort the array = " << ElapsedTime << " ms." << endl;
-
-	int wait; cin >> wait;
 }

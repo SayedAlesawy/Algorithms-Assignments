@@ -2,6 +2,7 @@
 #include<fstream>
 #include<algorithm>
 #include<set>
+#include<vector>
 #include<unordered_map>
 #include <ctime>
 #include <chrono>
