@@ -70,13 +70,13 @@ double RunSolution(int n, int m)
 	return TimeElapsed.count()*1000.0;
 }
 
-int main()
+int main(int argc, char** argv)
 {
 	string InputFileName, OutputFileName, StatsFileName;
 
-	InputFileName = "input.txt";
-	OutputFileName = "output.txt";
-	StatsFileName = "time.txt";
+	InputFileName = argv[1];
+	OutputFileName = argv[2];
+	StatsFileName = argv[3];
 
 	//Open the files for input/output
 	in.open(InputFileName);
