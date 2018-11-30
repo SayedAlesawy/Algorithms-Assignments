@@ -16,7 +16,7 @@ ofstream outarr, outstat;
 
 const int N = 1005;
 
-int n, m, col = 1, vis[N], ans[N], tmp[N];
+int n, m, col, vis[N], ans[N], tmp[N];
 vector<vector<int>>adj;
 
 void dfs(int u)
@@ -25,9 +25,9 @@ void dfs(int u)
 	memset(tmp, 0, sizeof(tmp));
 	for (int i = 0; i < adj[u].size(); i++) {
 		int v = adj[u][i];
-		if (ans[v]) tmp[ans[v]] = 1;
+		if (ans[v] != -1) tmp[ans[v]] = 1;
 	}
-	for (int i = 1; i <= col; i++) {
+	for (int i = 0; i <= col; i++) {
 		if (!tmp[i]) {
 			c = i;
 			break;
@@ -74,6 +74,8 @@ int main(int argc, char** argv)
 	outstat.open(StatsFileName);
 
 	in >> n >> m;
+	
+	memset(ans, -1, sizeof(ans));
 
 	adj.resize(n);
 	for (int i = 0; i < m; i++) {
@@ -84,7 +86,7 @@ int main(int argc, char** argv)
 	
 	double ElapsedTime = RunSolution();
 
-	outarr << col << endl;
+	//outarr << col << endl;
 
 	for (int i = 0; i < n; i++) outarr << i << " " << ans[i] << endl;
 

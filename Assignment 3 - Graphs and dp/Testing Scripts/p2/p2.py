@@ -10,7 +10,7 @@ os.system("rm " + student_output_file)
 os.system("g++ -std=c++11 hw3_p2.cpp -o output")
 
 print("Running binary file...")
-os.system("./output " + str(input_data_file) + " " + str(student_output_file) + str(running_time_file))
+os.system("./output " + str(input_data_file) + " " + str(student_output_file) + " " + str(running_time_file))
 
 print("Validating output...")
 

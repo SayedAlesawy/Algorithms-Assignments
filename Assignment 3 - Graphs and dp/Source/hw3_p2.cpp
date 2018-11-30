@@ -37,7 +37,7 @@ double RunSolution(int r)
 	//Put the function to test
 	start = high_resolution_clock::now();
 	
-	dfs(r, 0);
+	dfs(r, 1);
 
 	end = high_resolution_clock::now();
 

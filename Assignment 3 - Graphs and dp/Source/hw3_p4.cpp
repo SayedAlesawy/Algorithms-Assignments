@@ -67,5 +67,5 @@ int main(int argc, char** argv)
 	//Output the to the stats file
 	outstat << "Time taken: " << ElapsedTime << " ms." << endl;
 
-	int wait; cin >> wait;
+	//int wait; cin >> wait;
 }
