@@ -96,7 +96,7 @@ int main(int argc, char** argv)
 
 	for (int i = 0; i < common.size(); i++) {
 		outarr << common[i];
-		if (i != common.size()) outarr << " ";
+		if (i != common.size() - 1) outarr << " ";
 	}
 
 	//Output the to the stats file

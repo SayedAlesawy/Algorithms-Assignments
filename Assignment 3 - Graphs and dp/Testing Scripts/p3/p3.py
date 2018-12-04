@@ -14,21 +14,37 @@ os.system("./output " + str(input_data_file) + " " + str(student_output_file) + 
 
 print("Validating output...")
 
-arr1, arr2 = [], []
+graph = dict()
+colors = []
+
+with open(input_data_file, "r") as f:
+    n, m = f.readline().rstrip("\n").split(" ")
+    n = int(n)
+    m = int(m)
+    colors = [-1] * n
+    for i in range(n):
+        graph[i] = []
+    for i in range(m):
+        x, y = f.readline().rstrip("\n").split(" ")
+        x, y = int(x), int(y)
+        graph[x].append(y)
+        graph[y].append(x)
 
 with open(student_output_file, "r") as f:
-    for i in range(15):
-        arr1.append(f.readline().rstrip("\n").split(" ")[1])
+    for i in range(n):
+        x, y = f.readline().rstrip("\n").split(" ")
+        x, y = int(x), int(y)
+        colors[x] = y
 
-with open(output_data_file, "r") as f:
-    for i in range(15):
-        arr2.append(f.readline().rstrip("\n").split(" ")[1])
+set_colors = set()
 
-if arr1 == arr2:
+for i in range(n):
+    for j in graph[i]:
+        if colors[j] == colors[i]:
+            print("Bad Luck Wrong Submission :(")
+            print("same Color at vertex {} & {}".format(j, i))
+            exit(-1)
+if len(set_colors) <= 5:
     print("Hurray Correct Submission :)")
-    # print(arr1)
-    # print(arr2)
 else:
-    print("Bad Luck Wrong Submission :(")
-    print("our solution: ", arr2)
-    print("your solution: ", arr1)
+    print("Correct Coloring But Wrong optimal greedy algorithm :(")
